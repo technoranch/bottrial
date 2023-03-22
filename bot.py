@@ -24,8 +24,8 @@ def convert_file(update, context):
     download_url = f"https://api.telegram.org/bot{TOKEN}/getFile?file_id={file_id}"
     r = requests.get(download_url)
     file_path = r.json()['result']['file_path']
-    streamable_link = f"https://your_netlify_site_url/{file_path}"
-    download_link = f"https://your_netlify_site_url/{file_path}"
+    streamable_link = f"https://astonishing-torte-0e6602.netlify.app/{file_path}"
+    download_link = f"https://astonishing-torte-0e6602.netlify.app/{file_path}"
     
     # Send the links to the user
     message = f"File Name: {file}\nHere are the links for your video:\n\n📦File Size: {file_size}\n💌Download link: {download_link}\n💻Watch online: {streamable_link}\n\n♻️ THIS LINK IS PERMANENT AND WILL NOT EXPIRE ♻️"
@@ -39,7 +39,7 @@ def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(MessageHandler(Filters.document, convert_file))
     updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN)
-    updater.bot.setWebhook(url=f"https://your_netlify_site_url/{TOKEN}")
+    updater.bot.setWebhook(url=f"https://astonishing-torte-0e6602.netlify.app/{TOKEN}")
     updater.idle()
 
 if __name__ == '__main__':
