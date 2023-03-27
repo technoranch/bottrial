@@ -1,0 +1,7 @@
+Telegram API = f8196f936267d46a2955a7dd08f24d56
+API ID = 11508112
+BIN CHANNEL = -1001208391099
+BOT TOKEN = 
+DATABASE URL = mongodb+srv://technoranch:mHN9aw9jq8m4Db4@cluster0.cfexeti.mongodb.net/?retryWrites=true&w=majority
+OWNER ID = 828199717
+UPDATES_CHANNEL = -1001730394224
