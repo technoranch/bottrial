@@ -6,7 +6,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from urllib.parse import quote
 
 # Replace with your own Vercel deployment URL
-VERCEL_URL = ['https://your-bot.vercel.app']
+URL = ['https://your-bot.vercel.app']
 
 # Welcome message for bot
 WELCOME_MSG = "Welcome to File to Link Bot! Send me a video file and I'll generate a high-speed permanent download link and a streamable link for you."
@@ -40,12 +40,12 @@ def handle_video(update, context):
     message_id = update.message.message_id
 
     # Generate a permanent download link
-    res = requests.post(f'{VERCEL_URL}/api/download', data=json.dumps({'file_id': file_id}))
+    res = requests.post(f'{URL}/api/download', data=json.dumps({'file_id': file_id}))
     download_link = res.json().get('url')
 
     # Generate a streamable link
     encoded_file_name = quote(file_name)
-    streamable_link = f"{VERCEL_URL}/stream?file_id={file_id}&file_name={encoded_file_name}&file_size={file_size}"
+    streamable_link = f"{URL}/stream?file_id={file_id}&file_name={encoded_file_name}&file_size={file_size}"
 
     # Send the response to the user
     response_text = f"Here are the links for your video:\n\n{BOLD}Download link:{HTML_CLOSE_TAG} {download_link}\n{BOLD}Streamable link:{HTML_CLOSE_TAG} {streamable_link}"
